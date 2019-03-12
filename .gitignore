@@ -1,6 +1,6 @@
 ########## Rust
-/Rust/target
-/Rust/**/*.rs.bk
+/Rust/mazer/target
+/Rust/mazer/**/*.rs.bk
 
 ########## Python
 # Byte-compiled / optimized / DLL files
