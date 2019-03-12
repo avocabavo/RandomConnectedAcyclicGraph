@@ -121,15 +121,7 @@ class Segment:
 				if node.group == old_group:
 					node.group= new_group
 
-def make_maze():
-	parser= ArgumentParser(
-		description= "Create a random tree connecting an n by n grid of nodes.")
-	parser.add_argument(
-		'n',
-		help='Size of the node-grid.')
-	args= parser.parse_args()
-	n= int(args.n)
-
+def make_maze(n):
 	a= []
 	group_count= 0
 	for i in range(n):
@@ -180,4 +172,13 @@ def make_maze():
 	# print('segment count: ' + str(len(Segment.roster)))
 
 if __name__ == '__main__':
-	make_maze()
+	parser= ArgumentParser(
+		description= "Create a random tree connecting an n by n grid of nodes.")
+	parser.add_argument(
+		'n',
+		help='Size of the node-grid.')
+	args= parser.parse_args()
+
+	import timeit
+	setup= 'from __main__ import make_maze'
+	print(timeit.timeit('make_maze('+str(int(args.n))+')', setup=setup, number=1))
