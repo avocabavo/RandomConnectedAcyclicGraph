@@ -11,7 +11,7 @@ fn rcn_to_i(r: usize, c: usize, n: usize) -> usize {
 
 struct Node {
 	group: usize,
-	// these bools refer to whether the connecting segment in that direction is use in the tree.
+	// these bools refer to whether the connecting segment in that direction is used in the tree.
 	north: bool,
 	south: bool,
 	east: bool,
