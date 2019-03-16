@@ -4,6 +4,7 @@
 
 use rand::prelude::*;
 use std::env;
+use std::time::Instant;
 
 fn rcn_to_i(r: usize, c: usize, n: usize) -> usize {
 	(r * n) + c
@@ -42,6 +43,13 @@ fn main() {
 			0
 		}
 	};
+	let now = Instant::now();
+	maze_maker(n);
+	let elapsed = now.elapsed();
+	println!("n={} => {:?} .", n, elapsed);
+}
+
+fn maze_maker(n: usize) {
 	// println!("About ready to start the actual maze generation. Maze size taken in as {}.", n);
 	let mut nodes = Vec::with_capacity(n*n);
 	for row in 0..n {
